@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+div{
+	width: 500px;
+	height: 500px;
+	border : 1px red solid;
+}
+#back{
+	background-image:url('f5.jpg');
+	background-repeat : no-repeat;/*반복 없이 사용*/
+	/*background-size:cover;*/
+	/*이미지 확대*/
+	background-size: 100% 250px; /*width height (100%=height는 자동 지정)*/
+}
+pre{
+	white-space:pre-wrap;
+	text-align:center;
+}
+/*p.177*/
+#back2{
+	background-image:url('f5.jpg');
+	background-size: cover;
+	background-attacment: scroll;
+	overflow-y:auto; /*div 안에서 스크롤바를 만드는 경우*/
+}
+#back3{
+	background-image:url('f5.jpg');
+	background-size: cover;
+	background-position: 0px 50px;
+	background-repeat: no-repeat;
+}
+</style>
+</head>
+<body>
+	<div>
+		<img src="f5.jpg">
+	</div>
+	<p>
+	<div id="back">
+	
+	</div>
+	<div id="back2">
+		<h1>장우진, 16세 오준성 한수 가르쳤다</h1>
+		<pre>
+		베테랑 장우진이 16세 유망주 오준성에 한수 지도했다.
+		1일 경기도 수원시 광교체육관 스튜디오T에서 열린 ‘2023 두나무 한국프로탁구리그’(KTTL) 코리아리그(1부) 남자부 경기. 
+		국군체육부대는 장우진이 첫 단식에서 오준성을 2-0(11-4, 11-7)으로 완파하는 등 위력을 발휘한 끝에 미래에셋증권에 
+		매치스코어 4-0 완승을 거뒀다.
+		상무(감독 임종만)는 4승 무패가 됐고, 미래에셋증권(감독 오상은)은 4연승 뒤 뼈아픈 첫 패배를 당했다.
+		장우진은 독감에 걸렸지만 단식 두 경기를 따내는 등 에이스 노릇을 톡톡히 해냈다. 
+		올해 대광고 1년을 중퇴하고 미래에셋증권에 입단한 오준성. 그는 포핸드에서는 장우진과 대등한 면을 보였으나 
+		백핸드와 경기운영에서 큰 격차를 보였다고 한국프로탁구리그는 분석했다.
+		</pre>
+	</div>
+	</p>
+</body>
+</html>
