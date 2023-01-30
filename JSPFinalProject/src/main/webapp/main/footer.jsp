@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,25 +13,16 @@
     <!-- ################################################################################################ -->
     <div class="one_half first">
       <h6 class="title">공지사항</h6>
-      <address class="btmspace-15">
-      Company Name<br>
-      Street Name &amp; Number<br>
-      Town<br>
-      Postcode/Zip
-      </address>
-      <ul class="nospace">
-        <li class="btmspace-10"><span class="fa fa-phone"></span> +00 (123) 456 7890</li>
-        <li><span class="fa fa-envelope-o"></span> info@domain.com</li>
+      <ul class="nospace linklist">
+       <c:forEach var="vo" items="${nList }" varStatus="s">
+        <li><a href="#">${s.index+1 }.${vo.subject }(${vo.dbday })</a></li>
+        </c:forEach>
       </ul>
     </div>
     <div class="one_half">
       <h6 class="title">오늘의 뉴스</h6>
       <ul class="nospace linklist">
         <li><a href="#">Home Page</a></li>
-        <li><a href="#">Blog</a></li>
-        <li><a href="#">Gallery</a></li>
-        <li><a href="#">Portfolio</a></li>
-        <li><a href="#">Contact Us</a></li>
       </ul>
     </div>
     

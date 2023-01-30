@@ -7,7 +7,145 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+Shadowbox.init({
+   players:['iframe']
+})
+$(function(){
+   $('#checkBtn').click(function(){
+      Shadowbox.open({
+         content:'../member/idcheck.do',
+         player:'iframe',
+         width:420,
+         height:180,
+         title:'아이디 중복체크'
+      })
+   })
+   $('#postBtn').click(function(){
+      Shadowbox.open({
+         content:'../member/postfind.do',
+         player:'iframe',
+         width:580,
+            height:450,
+            title:'우편번호 검색'
+      })
+   })
+   //email검색
+   $('#eBtn').click(function(){
+      let email=$('#email').val();
+      if(email.trim()===""){
+         $('#email').focus();
+         return;
+      }
+      $.ajax({
+         type:'post',
+         url:'../member/email_check.do',
+         data:{"email":email},
+         success:function(result){
+            let count=Number(result.trim());
+            if(count==0){
+               $('#ePrint').text(email+"는(은) 사용 가능한 이메일입니다")
+               $('#email').prop('readonly',true)
+               
+            }else{
+               $('#ePrint').text(email+"는(은) 이미 사용중인 이메일입니다.")
+               $('#email').val("")
+               $('#email').focus();
+            }
+         }
+      })
+   })
+   //전화번호 검색
+   $('#tBtn').click(function(){
+      let tel1=$('#tel1').val();
+      let tel2=$('#tel2').val();
+      let phone=tel1+"-"+tel2
+      if(tel2.trim()===""){
+         $('#tel2').focus();
+         return;
+      }
+      $.ajax({
+         type:'post',
+         url:'../member/tel_check.do',
+         data:{"phone":phone},
+         success:function(result){
+            let count=Number(result.trim());
+            if(count==0){
+               $('#tPrint').text(phone+"는(은) 사용 가능한 전화번호입니다")
+               $('#tel1').prop('readonly',true)
+               
+            }else{
+               $('#tPrint').text(phone+"는(은) 이미 사용중인 전화번호입니다")
+               $('#tel2').val("")
+               $('#tel2').focus();
+            }
+         }
+      })
+   })
+   //회원가입 => 유효성 (NOT NULL) => 오라클 제약조건
+   $('#joinBtn').click(function(){
+      let id=$('#join_id').val();
+      if(id.trim()===""){
+         alert("아이디 중복 체크를 하세요")
+         $('#id').focus();
+         return
+      }
+      //비밀번호
+      let pwd1=$('#join_pwd').val()
+      if(pwd1.trim()===""){
+         alert("비밀번호는 필수 입력입니다")
+         $('#join_pwd').focus();
+         return;
+      }
+      let pwd2=$('#pwd1').val();
+      if(pwd1.trim()!==pwd2.trim()){
+         alert("비밀번호가 틀립니다\n다시 입력하세요")
+         $('#pwd1').val("")
+         $('#pwd1').focus();
+         return;
+      }
+      let name=$('#name').val()
+      if(name.trim()===""){
+         alert("이름은 필수 입력입니다")
+         $('#name').focus()
+         return
+      }
+      let day=$('#day').val()
+      if(day.trim()===""){
+         alert("생년월일은 필수 입력입니다")
+         $('#day').focus()
+         return
+      }
+      let email=$('#email').val()
+      if(email.trim()===""){
+         alert("이메일은 필수 입력입니다")
+         $('#email').focus()
+         return
+      }
+      let post=$('#post').val()
+      if(post.trim()===""){
+         alert("우편번호 검색을 하세요")
+         $('#post').focus()
+         return
+      }
+      let addr1=$('#addr1').val()
+      if(addr1.trim()===""){
+         alert("우편번호 검색을 하세요")
+         $('#addr1').focus()
+         return
+      }
+      let tel2=$('#tel2').val()
+      if(tel2.trim()===""){
+         alert("전화번호를 입력하세요")
+         $('#tel2').focus()
+         return
+      }
+      
+      $('#join_frm').submit();
+   })
+})
+</script>
 </head>
 <body>
 <div class="wrapper row3">
@@ -61,7 +199,7 @@
       <tr>
        <th class="text-right" width=15%>이메일</th>
        <td width=85% class="inline">
-         <input type=text name="email" id=email size=70 class="input-sm">
+         <input type=text name="email" id=email size=50 class="input-sm">
          <input type=button id="eBtn" class="btn btn-sm btn-success" value="이메일확인">
          &nbsp;<span style="color:blue" id="ePrint"></span>
        </td>
@@ -89,8 +227,8 @@
       <tr>
        <th class="text-right" width=15%>전화번호</th>
        <td width=85% class="inline">
-         <input type=text name=tel1 id=tel1 size=15 class="input-sm" value="010">
-         <input type=text name=tel2 id=tel2 size=30 class="input-sm">
+         <input type=text name=tel1 id=tel1 size=5 class="input-sm" value="010">
+         <input type=text name=tel2 id=tel2 size=20 class="input-sm">
          <input type=button id="tBtn" class="btn btn-sm btn-info" value="전화확인">
          &nbsp;<span style="color:blue" id="tPrint"></span>
        </td>

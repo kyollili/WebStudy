@@ -51,6 +51,7 @@ public class FoodModel {
 	   request.setAttribute("totalpage", totalpage);
 	   request.setAttribute("ss", ss);
 	   request.setAttribute("main_jsp", "../food/food_location.jsp");
+	   CommonsModel.footerData(request);
 	   return "../main/main.jsp";
    }
    @RequestMapping("food/food_list.do")
@@ -69,6 +70,7 @@ public class FoodModel {
 	   // include하는 파일 전송 
 	   
 	   request.setAttribute("main_jsp", "../food/food_list.jsp");
+	   CommonsModel.footerData(request);
 	   return "../main/main.jsp";
    }
    
@@ -91,6 +93,7 @@ public class FoodModel {
 	   // => 레시피 , 재료 , Goods , 인근 명소 
 	   // 화면 출력 
 	   request.setAttribute("main_jsp", "../food/food_detail.jsp");
+	   CommonsModel.footerData(request);
 	   return "../main/main.jsp";
    }
 }

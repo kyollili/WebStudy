@@ -13,6 +13,7 @@ import com.sist.dao.*;
 import com.sist.vo.*;
 @Controller
 public class MainModel {
+	
    @RequestMapping("main/main.do")
    public String main_page(HttpServletRequest request,HttpServletResponse response)
    {
@@ -22,8 +23,10 @@ public class MainModel {
 	   FoodDAO dao=new FoodDAO();
 	   ArrayList<CategoryVO> list=dao.foodCategoryData();
 	   request.setAttribute("list", list);//home.jsp
+	   
 	   // include할 파일명을 전송 
 	   request.setAttribute("main_jsp","../main/home.jsp");//main.jsp
+	   CommonsModel.footerData(request);
 	   return "../main/main.jsp";
    }
 }

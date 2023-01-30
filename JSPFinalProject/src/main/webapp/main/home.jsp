@@ -54,7 +54,7 @@
        <c:forEach var="vo" items="${list }" varStatus="s"><%-- list의  index번호 --%>
         <c:if test="${s.index>=0 && s.index<12 }">
 	        <li>
-	          <figure><img class="radius-10 btmspace-10" src="${vo.poster }" title="${vo.subject }">
+	          <figure><a href="../food/food_list.do?cno=${vo.cno }"><img class="radius-10 btmspace-10" src="${vo.poster }" title="${vo.subject }"></a>
 	            <figcaption><a href="../food/food_list.do?cno=${vo.cno }">${vo.title }</a></figcaption>
 	          </figure>
 	        </li>
@@ -69,7 +69,7 @@
         <c:forEach var="vo" items="${list }" varStatus="s"><%-- list의  index번호 --%>
         <c:if test="${s.index>=12 && s.index<18 }">
 	        <li>
-	          <figure><img class="radius-10 btmspace-10" src="${vo.poster }" title="${vo.subject }">
+	          <figure><a href="../food/food_list.do?cno=${vo.cno }"><img class="radius-10 btmspace-10" src="${vo.poster }" title="${vo.subject }"></a>
 	            <figcaption><a href="../food/food_list.do?cno=${vo.cno }">${vo.title }</a></figcaption>
 	          </figure>
 	        </li>
@@ -84,7 +84,7 @@
         <c:forEach var="vo" items="${list }" varStatus="s"><%-- list의  index번호 --%>
         <c:if test="${s.index>=18 && s.index<30 }">
 	        <li>
-	          <figure><img class="radius-10 btmspace-10" src="${vo.poster }" title="${vo.subject }">
+	          <figure><a href="../food/food_list.do?cno=${vo.cno }"><img class="radius-10 btmspace-10" src="${vo.poster }" title="${vo.subject }"></a>
 	            <figcaption><a href="../food/food_list.do?cno=${vo.cno }">${vo.title }</a></figcaption>
 	          </figure>
 	        </li>
