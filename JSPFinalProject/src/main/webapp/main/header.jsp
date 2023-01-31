@@ -80,6 +80,7 @@ $(function(){
         <li>아이디<input type=text name=id size=10 class="input-sm" id="log_id"></li>
         <li>비밀번호<input type=password name=pwd size=10 class="input-sm" id="log_pwd"></li>
         <li><input type=button class="btn btn-lg btn-danger" value="로그인" id="logBtn"></li>
+        <li><a href="../member/join.do"><input type=button class="btn btn-lg btn-info" value="회원가입"></a></li>
       </ul>
       </c:if>
       <c:if test="${sessionScope.id!=null }">
