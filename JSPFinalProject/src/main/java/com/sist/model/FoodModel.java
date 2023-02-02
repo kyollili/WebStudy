@@ -91,7 +91,7 @@ public class FoodModel {
 	   String fno=request.getParameter("fno");
 	   try
 	   {
-		   Cookie cookie=new Cookie(user+"_food"+fno,fno);
+		   Cookie cookie=new Cookie(user+"_food"+fno, fno);
 		   cookie.setPath("/");
 		   cookie.setMaxAge(60*60*24);
 		   response.addCookie(cookie);
@@ -121,8 +121,8 @@ public class FoodModel {
 	   List<AllReplyVO> rList=adao.allReplyListData(Integer.parseInt(fno), 2);
 	   request.setAttribute("rList", rList);
 	   request.setAttribute("count", rList.size());
-	   CommonsModel.footerData(request);
-	   
+	  
+	   // 한식 / 고기  ==> 한식|고기 
 	   String type=vo.getType();
 	   int index=type.indexOf('/');
 	   if(index>-1)
@@ -130,11 +130,8 @@ public class FoodModel {
 		   type=type.replace('/','|');
 	   }
 	   List<RecipeVO> nList=dao.food_recipe_data(type);
-	   request.setAttribute("nList", nList);
-	   
+	   request.setAttribute("nList1", nList);
+	   CommonsModel.footerData(request);
 	   return "../main/main.jsp";
    }
-  
 }
-
-

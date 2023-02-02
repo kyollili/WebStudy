@@ -7,13 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div class="wrapper row3">
+<div class="wrapper row3">
   <main class="container clear">
   <h2 class="sectiontitle">공지사항 수정</h2>
   <div style="height: 5px"></div>
   <form method="post" action="../adminpage/notice_update_ok.do">
   <table class="table">
-  <tr>
+    <tr>
       <th width=15% class="text-right">구분</th>
       <td width=80%>
         <select name="type" class="input-sm">
@@ -53,6 +53,6 @@
   </table>
   </form>
   </main>
-  </div>
+</div>
 </body>
 </html>

@@ -54,7 +54,7 @@
        <c:forEach var="vo" items="${list }" varStatus="s"><%-- list의  index번호 --%>
         <c:if test="${s.index>=0 && s.index<12 }">
 	        <li>
-	          <figure><a href="../food/food_list.do?cno=${vo.cno }"><img class="radius-10 btmspace-10" src="${vo.poster }" title="${vo.subject }"></a>
+	          <figure><img class="radius-10 btmspace-10" src="${vo.poster }" title="${vo.subject }">
 	            <figcaption><a href="../food/food_list.do?cno=${vo.cno }">${vo.title }</a></figcaption>
 	          </figure>
 	        </li>
@@ -69,7 +69,7 @@
         <c:forEach var="vo" items="${list }" varStatus="s"><%-- list의  index번호 --%>
         <c:if test="${s.index>=12 && s.index<18 }">
 	        <li>
-	          <figure><a href="../food/food_list.do?cno=${vo.cno }"><img class="radius-10 btmspace-10" src="${vo.poster }" title="${vo.subject }"></a>
+	          <figure><img class="radius-10 btmspace-10" src="${vo.poster }" title="${vo.subject }">
 	            <figcaption><a href="../food/food_list.do?cno=${vo.cno }">${vo.title }</a></figcaption>
 	          </figure>
 	        </li>
@@ -84,7 +84,7 @@
         <c:forEach var="vo" items="${list }" varStatus="s"><%-- list의  index번호 --%>
         <c:if test="${s.index>=18 && s.index<30 }">
 	        <li>
-	          <figure><a href="../food/food_list.do?cno=${vo.cno }"><img class="radius-10 btmspace-10" src="${vo.poster }" title="${vo.subject }"></a>
+	          <figure><img class="radius-10 btmspace-10" src="${vo.poster }" title="${vo.subject }">
 	            <figcaption><a href="../food/food_list.do?cno=${vo.cno }">${vo.title }</a></figcaption>
 	          </figure>
 	        </li>
@@ -96,11 +96,11 @@
     <h2 class="sectiontitle">최근 방문 맛집</h2>
     <!-- ################################################################################################ -->
       <div class="inline">
-      <c:forEach var="cvo" items="${cList }" varStatus="s">
+       <c:forEach var="cvo" items="${cList }" varStatus="s">
         <c:if test="${s.index<9 }">
-          <img src="${cvo.post }" style="width :100px;height:100px;">
+         <img src="${cvo.poster }" style="width: 100px;height: 100px">
         </c:if>
-      </c:forEach>
+       </c:forEach>
       </div>
     <!-- ################################################################################################ --> 
     <!-- / main body -->

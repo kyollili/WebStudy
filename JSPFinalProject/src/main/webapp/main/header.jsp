@@ -10,13 +10,13 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
 $(function(){
-	//로그인 버튼 눌렀을 때
+	// 로그인 버튼 
 	$('#logBtn').click(function(){
-		//아이디,페스워드 => 모델로 전송
+		// id,pwd => Model로 전송 
 		let id=$('#log_id').val();
 		if(id.trim()==="")
 		{
-			$('log_id').focus();
+			$('#log_id').focus();
 			return
 		}
 		let pwd=$('#log_pwd').val();
@@ -32,18 +32,18 @@ $(function(){
 			data:{"id":id,"pwd":pwd},
 			success:function(result)
 			{
+				// NOID , NOPWD , OK
 				let res=result.trim();
 				if(res==='NOID')
 				{
-					alert("아이디가 존재하지 않습니다")
+					alert("아이디가 존재하지 않습니다!!")
 					$('#log_id').val("");
 					$('#log_pwd').val("");
 					$('#log_id').focus()
-					
 				}
 				else if(res==='NOPWD')
 				{
-					alert("비밀번호가 틀립니다")
+					alert("비밀번호가 틀립니다!!")
 					$('#log_pwd').val("")
 					$('#log_pwd').focus()
 				}
@@ -53,8 +53,9 @@ $(function(){
 				}
 			}
 		})
+		
 	})
-	//로그아웃 버튼 눌렀을 때
+	// 로그아웃 버튼 
 	$('#logoutBtn').click(function(){
 		$.ajax({
 			type:'post',
@@ -75,20 +76,21 @@ $(function(){
       <h1><a href="../main/main.do">서울 맛집 & 서울 여행</a></h1>
     </div>
     <div class="fl_right">
-    <c:if test="${sessionScope.id==null }">
+     <!-- 로그인이 안된 상태 -->
+     <c:if test="${sessionScope.id==null }">
       <ul class="inline">
         <li>아이디<input type=text name=id size=10 class="input-sm" id="log_id"></li>
         <li>비밀번호<input type=password name=pwd size=10 class="input-sm" id="log_pwd"></li>
         <li><input type=button class="btn btn-lg btn-danger" value="로그인" id="logBtn"></li>
-        <li><a href="../member/join.do"><input type=button class="btn btn-lg btn-info" value="회원가입"></a></li>
       </ul>
-      </c:if>
-      <c:if test="${sessionScope.id!=null }">
-       <ul class="inline">
-        <li>${sessionScope.id }(${sessionScope.admin=='y'?"관리자":"일반사용자" })님 로그인 중입니다</li>
+     </c:if>
+     <!-- 로그인된 상태 -->
+     <c:if test="${sessionScope.id!=null }">
+      <ul class="inline">
+        <li>${sessionScope.name }(${sessionScope.admin=='y'?"관리자":"일반사용자" })님 로그인중입니다</li>
         <li><input type=button class="btn btn-lg btn-primary" value="로그아웃" id="logoutBtn"></li>
       </ul>
-      </c:if>
+     </c:if>
     </div>
   </header>
 </div>
@@ -126,7 +128,7 @@ $(function(){
           <li><a href="../seoul/seoul_list.do?type=2">자연&관광</a></li>
           <li><a href="../seoul/seoul_list.do?type=3">쇼핑</a></li>
           <li><a href="../seoul/seoul_list.do?type=4">호텔</a></li>
-          <li><a href="../seoul/seoul_weather.do?">오늘의 날씨</a></li>
+          <li><a href="../seoul/seoul_weather.do">오늘의 날씨</a></li>
          <c:if test="${sessionScope.id!=null }">
           <li><a href="pages/sidebar-left.html">여행코스</a></li>
          </c:if>
@@ -174,9 +176,3 @@ $(function(){
 </div>
 </body>
 </html>
-
-
-
-
-
-

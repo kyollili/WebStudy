@@ -229,6 +229,7 @@ public class FoodDAO {
 	   }
 	   return vo;
    }
+   
    // 관련 레시피 출력 
    public List<RecipeVO> food_recipe_data(String type)
    {
@@ -261,4 +262,5 @@ public class FoodDAO {
 	   }
 	   return list;
    }
+   
 }

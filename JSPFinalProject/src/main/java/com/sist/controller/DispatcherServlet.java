@@ -181,7 +181,7 @@ public class DispatcherServlet extends HttpServlet {
 						// request 전송 => forward
 						if(jsp==null)
 						{
-							return; //return형 String , void 다 가능(ajax)
+							return; // String , void (ajax) 
 						}
 						else if(jsp.startsWith("redirect:")) // _ok.jsp => Controller 직접 처리 
 						{
@@ -202,11 +202,3 @@ public class DispatcherServlet extends HttpServlet {
 	}
 
 }
-
-
-
-
-
-
-
-

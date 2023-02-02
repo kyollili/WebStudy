@@ -23,7 +23,7 @@ $(function(){
 			success:function(response)
 			{
 				let res=response.trim();
-				if(res==="no") //비밀번호가 틀릴 경우
+				if(res==="no")// 비밀번호가 틀립니다
 				{
 					alert("비밀번호가 틀립니다")
 					$('#pwd').val("")
@@ -31,7 +31,7 @@ $(function(){
 				}
 				else
 				{
-					alert("회원 탈퇴 되었습니다")
+					alert("회원 탈퇴되었습니다")
 					location.href="../main/main.do"
 				}
 			}
@@ -45,28 +45,28 @@ $(function(){
   <div id="breadcrumb" class="clear"> 
     <!-- ################################################################################################ -->
     <ul>
-      <li>회원 가입</li>
+      <li>회원 탈퇴</li>
     </ul>
     <!-- ################################################################################################ --> 
    </div>
   </div>
-  <div class="wrapper row3 row">
-   <main class="container clear">
-   <h2 class="sectiontitle">회원탈퇴</h2>
-   <table class="table">
-     <tr>
-       <td class="text-center inline">
-       비밀번호 : <input type=password size=20 class="input-sm" id="pwd">
-       </td>
-     </tr>
-     <tr>
-       <td class="text-center inline">
-         <input type=button value="회원탈퇴" class="btn btn-sm btn-danger" id="delBtn">
-         <input type=button value="취소" class="btn btn-sm btn-primary" onclick="javascript:history.back()">
-       </td>
-     </tr>
-   </table>
-   </main>
-</div>   
+<div class="wrapper row3 row">
+  <main class="container clear">
+  <h2 class="sectiontitle">회원탈퇴</h2>
+  <table class="table">
+    <tr>
+      <td class="text-center inline">
+      비밀번호:<input type=password size=20 class="input-sm" id="pwd">
+      </td>
+    </tr>
+    <tr>
+      <td class="text-center inline">
+        <input type=button value="회원탈퇴" class="btn btn-sm btn-danger" id="delBtn">
+        <input type=button value="취소" class="btn btn-sm btn-primary" onclick="javascript:history.back()">
+      </td>
+    </tr>
+  </table>
+  </main>
+</div>
 </body>
 </html>
