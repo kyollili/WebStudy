@@ -57,4 +57,71 @@ public class AdminModel {
 		  CommonsModel.footerData(request);
 		  return "../main/main.jsp";
 	   }
+	 @RequestMapping("adminpage/notice_insert_ok.do")
+	 public String admin_notice_insert_ok(HttpServletRequest request, HttpServletResponse response)
+	 {
+		 //사용자가 전송한 데이터 받기
+		 try
+		 {
+			 request.setCharacterEncoding("UTF-8");
+		 }catch(Exception ex) {}
+		 String type=request.getParameter("type");
+		 String name=request.getParameter("name");
+		 String subject=request.getParameter("subject");
+		 String content=request.getParameter("content");
+		 NoticeVO vo=new NoticeVO();
+		 vo.setType(Integer.parseInt(type));
+		 vo.setName(name);
+		 vo.setSubject(subject);
+		 vo.setContent(content);
+		 
+		 //DAO 연결 => 오라클
+		 NoticeDAO dao=new NoticeDAO();
+		 dao.noticeInsert(vo);
+		 return "redirect:notice_list.do";
+	 }
+	 @RequestMapping("adminpage/notice_delete.do")
+	 public String admin_notice_delete(HttpServletRequest request, HttpServletResponse response)
+	 {
+		 String no=request.getParameter("no");
+		 //DAO 연동
+		 NoticeDAO dao=new NoticeDAO();
+		 dao.noticeDelete(Integer.parseInt(no));
+		 return "redirect:notice_list.do";
+	 }
+	 @RequestMapping("adminpage/notice_update.do")
+	 public String admin_notice_update(HttpServletRequest request, HttpServletResponse response)
+	 {
+		 String no=request.getParameter("no");
+		 NoticeDAO dao=new NoticeDAO();
+		 NoticeVO vo=dao.noticeUpdateData(Integer.parseInt(no));
+		 request.setAttribute("vo", vo);
+		 request.setAttribute("admin_jsp", "../adminpage/notice_update.jsp");
+		 request.setAttribute("main_jsp", "../adminpage/admin_main.jsp");
+		 CommonsModel.footerData(request);
+		 return "../main/main.jsp";
+	 }
+	 @RequestMapping("adminpage/notice_update_ok.do")
+	 public String admin_notice_update_ok(HttpServletRequest request, HttpServletResponse response)
+	 {
+		 try
+		 {
+			 request.setCharacterEncoding("UTF-8");
+		 }catch(Exception ex) {}
+		 String type=request.getParameter("type");
+		 String name=request.getParameter("name");
+		 String subject=request.getParameter("subject");
+		 String content=request.getParameter("content");
+		 String no=request.getParameter("no");
+		 NoticeVO vo=new NoticeVO();
+		 vo.setType(Integer.parseInt(type));
+		 vo.setName(name);
+		 vo.setSubject(subject);
+		 vo.setContent(content);
+		 vo.setNo(Integer.parseInt(no));
+		 NoticeDAO dao=new NoticeDAO();
+		 //메소드 호출
+		 dao.noticeUpdate(vo);
+		 return "redirect:notice_list.do";
+	 }
 }

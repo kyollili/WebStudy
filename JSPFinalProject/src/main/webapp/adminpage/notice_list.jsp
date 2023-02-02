@@ -7,6 +7,23 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+<%--$(function(){
+	$('.del').click(function(){
+		let no=$(this).attr("data-no");
+		$.ajax({
+			type:'post',
+			url:'../adminpage/notice_delete.do',
+			data:{"no":no},
+			success:function(result)
+			{
+				
+			}
+		})
+	})
+})--%>
+</script>
 </head>
 <body>
    <div class="wrapper row3">
@@ -25,10 +42,11 @@
        <table class="table">
          <tr>
            <th width="10%" class="text-center">구분</th>
-           <th width="45%" class="text-center">제목</th>
-           <th width="15%" class="text-center">이름</th>
-           <th width="20%" class="text-center">작성일</th>
+           <th width="40%" class="text-center">제목</th>
+           <th width="10%" class="text-center">이름</th>
+           <th width="15%" class="text-center">작성일</th>
            <th width="10%" class="text-center">조회수</th>
+           <th width="15%" class="text-center"></th>
          </tr>
          <%--
             for(FreeBoardVO vo:request.getAttribute("list"))
@@ -42,9 +60,13 @@
                 <sup><img src="../freeboard/image/new.gif"></sup>
               </c:if>
              </td>
-             <td width="15%" class="text-center">${vo.name }</td>
-             <td width="20%" class="text-center">${vo.dbday }</td>
+             <td width="10%" class="text-center">${vo.name }</td>
+             <td width="15%" class="text-center">${vo.dbday }</td>
              <td width="10%" class="text-center">${vo.hit }</td>
+             <td width="15%" class="text-center">
+               <a href="../adminpage/notice_update.do?no=${vo.no }" class="btn btn-xs btn-success">수정</a>
+               <a href="../adminpage/notice_delete.do?no=${vo.no }" class="btn btn-xs btn-info">삭제</a>
+             </td>
            </tr>
          </c:forEach>
        </table>
