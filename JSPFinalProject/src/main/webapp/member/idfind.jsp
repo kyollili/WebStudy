@@ -90,13 +90,13 @@ $( function() {
 	    <li><a href="#tabs-2">이메일</a></li>
 	  </ul>
 	  <div id="tabs-1" class="inline">
-	    <p>전화번호:<input type=text name=tel size=20 id=tel class="input-sm">
+	    <p>전화번호 :&nbsp;<input type=text name=tel size=20 id=tel class="input-sm">
 	       <input type=button value="검색" class="btn btn-sm btn-danger" id="telBtn">
 	    </p>
 	    <p id="tel_result"></p>
 	  </div>
 	  <div id="tabs-2" class="inline">
-	    <p>이메일:<input type=text name=email size=35 id=email class="input-sm">
+	    <p>이메일 :&nbsp;<input type=text name=email size=35 id=email class="input-sm">
 	       <input type=button value="검색" class="btn btn-sm btn-primary" id="emailBtn">
 	    </p>
 	    <p id="email_result"></p>
