@@ -8,38 +8,50 @@ public class GroupSelectModel {
    public List<Integer> group_choice()
    {
 	   List<Integer> list=new ArrayList<Integer>();
-	   int[] com=new int[12];
-	   int count1=0,count2=0,count3=0;
-	   for(int i=0;i<com.length;i++)
+	   int[] com=new int[13];
+	   int[] a=new int[4];
+	   for(int i=0;i<4;i++)
 	   {
-		   com[i]=(int)(Math.random()*3)+1;
-		   if(com[i]==1)
-		   {
-			   if(count1>4)
-				   continue;
-			   count1++;
-			   
-		   }
-		   else if(com[i]==2)
-		   {
-			   if(count2>4)
-				   continue;
-			   count2++;
-			  
-		   }
-		   else if(com[i]==3)
-		   {
-			   if(count3>4)
-				   continue;
-			   count3++;
-			   
-		   }
-		   
-		   
+		   int sel=(int)(Math.random()*13);
+		   com[sel]=1;
 	   }
-	   for(int i:com)
+	   boolean bCheck=false;
+	   int sel=0;
+	   for(int i=0;i<4;i++)
 	   {
-		   System.out.print(i+" ");
+		   bCheck=true;
+		   while(bCheck)
+		   {
+		       sel=(int)(Math.random()*13);
+		       bCheck=false;
+		       if(com[sel]!=0)
+		       {
+		    	   bCheck=true;
+		    	   break;
+		       }
+		   }
+		   com[sel]=2;
+	   }
+	   bCheck=false;
+	   sel=0;
+	   for(int i=0;i<4;i++)
+	   {
+		   bCheck=true;
+		   while(bCheck)
+		   {
+		       sel=(int)(Math.random()*13);
+		       bCheck=false;
+		       if(com[sel]!=0)
+		       {
+		    	   bCheck=true;
+		    	   break;
+		       }
+		   }
+		   com[sel]=3;
+	   }
+	   for(int i=0;i<13;i++)
+	   {
+		   System.out.print(com[i]+" ");
 	   }
 	   return list;
    }

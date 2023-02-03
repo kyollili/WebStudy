@@ -69,7 +69,7 @@ public class FoodModel {
 	   LikeDAO ldao=new LikeDAO();
 	   for(FoodVO fvo:list)
 	   {
-		   fvo.setCount(ldao.foodlikeCount(fvo.getFno()));
+		   fvo.setCount(ldao.foodLikeCount(fvo.getFno()));
 	   }
 	   request.setAttribute("list", list);
 	   CategoryVO vo=dao.categoryInfoData(Integer.parseInt(cno));
@@ -146,10 +146,11 @@ public class FoodModel {
 	   LikeDAO ldao=new LikeDAO();
 	   int mc=ldao.myLikeCount(Integer.parseInt(fno), id);
 	   //int tc=ldao.likeCount();
-	   int tc=ldao.foodlikeCount(Integer.parseInt(fno));
+	   int tc=ldao.foodLikeCount(Integer.parseInt(fno));
 	   request.setAttribute("like_count", mc);
 	   request.setAttribute("like_total", tc);
 	   CommonsModel.footerData(request);
 	   return "../main/main.jsp";
    }
 }
+

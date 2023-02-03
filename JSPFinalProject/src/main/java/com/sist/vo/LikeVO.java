@@ -1,8 +1,8 @@
 package com.sist.vo;
 
 public class LikeVO {
-	private int lno,no;
-	private String id;
+    private int lno,no;
+    private String id;
 	public int getLno() {
 		return lno;
 	}
@@ -21,5 +21,5 @@ public class LikeVO {
 	public void setId(String id) {
 		this.id = id;
 	}
-	
+   
 }

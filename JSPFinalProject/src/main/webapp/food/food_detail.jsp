@@ -104,12 +104,13 @@ $(function(){
           <tr>
             <td colspan="2" class="text-right">
              <c:if test="${sessionScope.id!=null }">
-               <c:if test="${like_count==0 }">
-              <a href="../like/like_insert.do?fno=${vo.fno }" class="btn btn-xs btn-info">좋아요(${like_total })</a>
-               </c:if>
-               <c:if test="${like_count!=0 }">
-              <span class="btn btn-xs btn-default">좋아요(${like_total })</span>
-               </c:if>
+              <c:if test="${like_count==0 }">
+               <a href="../like/like_insert.do?fno=${vo.fno }" class="btn btn-xs btn-info">좋아요(${like_total })</a>
+              </c:if>
+              <c:if test="${like_count!=0 }">
+               <span class="btn btn-xs btn-default">좋아요(${like_total })</span>
+              </c:if>
+              
               <c:if test="${jjim_count==0 }">
                <a href="../jjim/jjim_insert.do?fno=${vo.fno }" class="btn btn-xs btn-success">찜하기</a>
               </c:if>
