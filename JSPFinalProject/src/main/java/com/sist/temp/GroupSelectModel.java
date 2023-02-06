@@ -9,49 +9,72 @@ public class GroupSelectModel {
    {
 	   List<Integer> list=new ArrayList<Integer>();
 	   int[] com=new int[13];
-	   int[] a=new int[4];
-	   for(int i=0;i<4;i++)
-	   {
-		   int sel=(int)(Math.random()*13);
-		   com[sel]=1;
-	   }
+	   int[] rand=new int[13];
 	   boolean bCheck=false;
-	   int sel=0;
+	   int s=0;
 	   for(int i=0;i<4;i++)
 	   {
 		   bCheck=true;
+		   //System.out.println("1");
 		   while(bCheck)
 		   {
-		       sel=(int)(Math.random()*13);
-		       bCheck=false;
-		       if(com[sel]!=0)
-		       {
-		    	   bCheck=true;
-		    	   break;
-		       }
+		      s=(int)(Math.random()*13);
+		      System.out.println("s="+s);
+		      //System.out.println(s);
+		      bCheck=false;
+		          if(com[s]==1)
+		    	  {
+		    		  bCheck=true;
+		    		  break;
+		    	  }
+		     
 		   }
-		   com[sel]=2;
+		   com[s]=1;
+		   rand[i]=s;
+	   }
+	   
+	   
+	   bCheck=false;
+	   s=0;
+	   for(int i=0;i<4;i++)
+	   {
+		   bCheck=true;
+		   //System.out.println("1");
+		   while(bCheck)
+		   {
+		      s=(int)(Math.random()*13);
+		      //System.out.println(s);
+		      bCheck=false;
+		          if(com[s]!=0)
+		    	  {
+		    		  bCheck=true;
+		    		  break;
+		    	  }
+		   }
+		   com[s]=2;
 	   }
 	   bCheck=false;
-	   sel=0;
+	   s=0;
 	   for(int i=0;i<4;i++)
 	   {
 		   bCheck=true;
+		   //System.out.println("1");
 		   while(bCheck)
 		   {
-		       sel=(int)(Math.random()*13);
-		       bCheck=false;
-		       if(com[sel]!=0)
-		       {
-		    	   bCheck=true;
-		    	   break;
-		       }
+		      s=(int)(Math.random()*13);
+		      //System.out.println(s);
+		      bCheck=false;
+		          if(com[s]!=0)
+		    	  {
+		    		  bCheck=true;
+		    		  break;
+		    	  }
 		   }
-		   com[sel]=3;
+		   com[s]=3;
 	   }
-	   for(int i=0;i<13;i++)
+	   for(int i:com)
 	   {
-		   System.out.print(com[i]+" ");
+		   System.out.print(i+" ");
 	   }
 	   return list;
    }

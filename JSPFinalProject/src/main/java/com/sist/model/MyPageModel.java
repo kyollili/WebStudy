@@ -7,6 +7,8 @@ import javax.servlet.http.HttpSession;
 import com.sist.controller.Controller;
 import com.sist.controller.RequestMapping;
 import com.sist.dao.JjimDAO;
+import com.sist.dao.ReserveDAO;
+
 import java.util.*;
 import com.sist.vo.*;
 @Controller
@@ -39,5 +41,14 @@ public class MyPageModel {
 	   JjimDAO dao=new JjimDAO();
 	   dao.jjimDelete(Integer.parseInt(jno));
 	   return "redirect:jjim_list.do";
+   }
+   @RequestMapping("mypage/mypage_reserve_info.do")
+   public String mypage_reserve_info(HttpServletRequest request,HttpServletResponse response)
+   {
+	   String rno=request.getParameter("rno");
+	   ReserveDAO dao=new ReserveDAO();
+	   ReserveVO vo=dao.mypageReserveInfo(Integer.parseInt(rno));
+	   request.setAttribute("rno", rno);
+	   return "../mypage/mypage_reserve_info.jsp";
    }
 }

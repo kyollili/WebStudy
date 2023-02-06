@@ -5,11 +5,19 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="canonical" href="https://korean.visitseoul.net/weather" hreflang="ko"/>
-<link type="text/css" rel="stylesheet" href="https://korean.visitseoul.net/resources/theme/plugin/animated-event-calendar/simple-calendar.css?bust=20221228_01" class="css">
-<link type="text/css" rel="stylesheet" href="https://korean.visitseoul.net/resources/theme/style/2022/common.css?bust=20221228_01" class="css">
-<link type="text/css" rel="stylesheet" href="https://korean.visitseoul.net/resources/theme/style/2022/main.css?bust=20230106_02" class="css">
-<link type="text/css" rel="stylesheet" href="https://korean.visitseoul.net/resources/theme/style/2022/content.css?bust=20221228_10" class="css">
+<link rel="stylesheet" href="https://korean.visitseoul.net/humanframe/theme/visitseoul/assets/style/2019/animate.css" />
+<!--  	<link rel="stylesheet" href="https://korean.visitseoul.net/humanframe/theme/visitseoul/assets/style/2019/common.css" /> -->
+<link rel="stylesheet" href="https://korean.visitseoul.net/humanframe/theme/visitseoul/assets/style/2019/content.css?bust=20210907_1" />
+<link rel="stylesheet" href="https://korean.visitseoul.net/humanframe/theme/visitseoul/assets/style/2019/layout.css?bust=20210716" />
+<link rel="stylesheet" href="https://korean.visitseoul.net/humanframe/theme/visitseoul/assets/style/content.css?bust=20210806" />
+<link rel="stylesheet" href="https://korean.visitseoul.net/humanframe/theme/visitseoul/assets/style/seoul_stay.css?20201209114337" />
+<style type="text/css">
+th.tbcon01,th.tbcon02,th.tbcon03{
+  text-align: center;
+  color:#999;
+  vertical-align: middle;
+}
+</style>
 </head>
 <body>
 <div class="wrapper row3">
