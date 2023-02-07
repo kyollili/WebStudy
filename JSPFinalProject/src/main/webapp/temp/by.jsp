@@ -14,7 +14,7 @@
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 <script type="text/javascript">
 var IMP = window.IMP; // 생략 가능
-IMP.init("imp68206770"); // 예: imp00000000
+IMP.init("imp28030222"); // 예: imp00000000
 function requestPay() {
 	console.log('clicked');
   // IMP.request_pay(param, callback) 결제창 호출
